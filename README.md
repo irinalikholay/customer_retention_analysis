@@ -36,6 +36,7 @@ After cleaning, the processed data was saved into a SQLite database (`customer_r
 
 This step ensures that further cohort analysis is based on valid and reliable transactional data.
 
+
 ## Step 3 - Cohort Preparation
 
 In this step we prepared the dataset for customer retention analysis.
@@ -62,3 +63,19 @@ A new table `cohort_data`was created in the database .
 customer_retention.db
 |__ orders
 |__ cohort_data
+
+
+## Step 4 - Retention Aggregation 
+
+In this step, sustomer retention was aggregated by cohort.
+
+Using the `cohort_data` table, we calculated:
+- Number of active customers per cohort 
+- Per month since first purchase 
+
+The output structure:
+- `cohort_month`
+- `month_since_first_purchase`
+- `active_customers`
+
+This step prepares data for the retention rate calculation and cohort matrix visualization.
