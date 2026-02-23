@@ -35,3 +35,30 @@ To following transformations were applied:
 After cleaning, the processed data was saved into a SQLite database (`customer_retention.db`) as the `orders` table.
 
 This step ensures that further cohort analysis is based on valid and reliable transactional data.
+
+## Step 3 - Cohort Preparation
+
+In this step we prepared the dataset for customer retention analysis.
+
+Using SQL, we created a cohort_based structuree that allows tracking customer behavior over time.
+
+# What was done:
+- Identified each customers first purchase date
+- Assigned customers to a cohort month (first_purchase_month)
+- Calculated the number of months since the first purchase
+- Created a derived table `cohot_data`in SQLite
+
+# Logic:
+For each customer:
+- `cohort_month` - month of first puschase
+- `order_month` - month of each transaction 
+- `month_since_first_purchase` - difference in months between first purchase and transaction
+
+This table serves as the foundation for building the retention matrix.
+
+## Result:
+A new table `cohort_data`was created in the database .
+
+customer_retention.db
+|__ orders
+|__ cohort_data
